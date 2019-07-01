@@ -14,8 +14,20 @@ ip-input-lib is a simple Angular library to provide enhanced user experience for
     * In case the current sub-block is empty, it is automatically populated with a 0 before jumping to the next sub-block or next form field.
 4. The directive provides IP address validation which is visible from the validity state of the associated `<input>` when using `FormsModule` or `ReactiveFormsModule `.
 
-### Examples/Demo
+### Example/Demo
   - A sample example for IP input in template-driven forms in angular can be found in the `src/app` directory of this repository.
+  - A live demo of the library is available at the following URL:
+  https://stackblitz.com/edit/angular-jxnsyv
+
+![](ip-input-demo.gif)
+
+### Running the example/demo
+1. Clone the project from Github.
+2. In the terminal, change the path to the downloaded folder.
+3. Run `npm install` in the terminal to install the dependencies.
+4. Run `ng build ip-input-lib` to build the library.
+5. Run `ng serve` to serve the app.
+6. Enter `localhost:4200` in the browser URL field to view and user the app.
 
 ### Installation
 ```sh 
@@ -46,7 +58,7 @@ _**Note:** It is necessary to use at least one from amongst the `FormsModule` an
 Use the directive selector `ip` in your IP `<input>` field to consume it.
 
 * **Reactive forms**
-    i. Add the following import to the typescript file that defines the form:
+i. Add the following import to the typescript file that defines the form:
 `import {IpInputLibDirective} from 'ip-input-lib'`
 ii. Add the following validator in the synchronous validators array of your input FormControl:
 `IpInputLibDirective.ipAddress`

@@ -1,4 +1,4 @@
-import {Directive, ElementRef, HostListener, Renderer2} from '@angular/core';
+import {Directive, ElementRef, HostListener, OnInit, Renderer2} from '@angular/core';
 import {AbstractControl, NG_VALIDATORS, ValidationErrors, Validator} from '@angular/forms';
 
 @Directive({
@@ -6,8 +6,12 @@ import {AbstractControl, NG_VALIDATORS, ValidationErrors, Validator} from '@angu
   providers: [{provide: NG_VALIDATORS, useExisting: IpInputLibDirective, multi: true}]
 })
 
-export class IpInputLibDirective implements Validator{
+export class IpInputLibDirective implements Validator, OnInit{
   constructor(private elementRef: ElementRef, private renderer: Renderer2){}
+
+  ngOnInit(){
+      this.renderer.setProperty(this.elementRef.nativeElement, "placeholder", "xxx.xxx.xxx.xxx");
+  }
 
   @HostListener('keydown', ['$event']) keyPress(event) {
     let element = this.elementRef.nativeElement; //host element
